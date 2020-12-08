@@ -41,7 +41,11 @@
 
     <!-- Nav Item - Laporan Penjualan Barang -->
     <li class="nav-item">
+<<<<<<< HEAD
         <a class="nav-link" href="/laporan">
+=======
+        <a class="nav-link" href="index.html">
+>>>>>>> eb54a89e55e6e5cde47b1ec57b1d9f1b13f9d9b5
             <i class="fas fa-chart-bar"></i>
             <span>Laporan Penjualan Barang</span></a>
     </li>

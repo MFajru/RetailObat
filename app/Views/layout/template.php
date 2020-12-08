@@ -21,6 +21,7 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets'); ?>/css/sb-admin-2.min.css" rel="stylesheet">
 
+<<<<<<< HEAD
     <style>
         @media print {
             @page {
@@ -35,6 +36,8 @@
             }
         }
     </style>
+=======
+>>>>>>> eb54a89e55e6e5cde47b1ec57b1d9f1b13f9d9b5
 </head>
 
 <body id="page-top">

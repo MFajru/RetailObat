@@ -32,9 +32,15 @@ class Database extends \CodeIgniter\Database\Config
 	public $default = [
 		'DSN'      => '',
 		'hostname' => 'localhost',
+<<<<<<< HEAD
 		'username' => 'root',
 		'password' => '',
 		'database' => 'utsweb',
+=======
+		'username' => '',
+		'password' => '',
+		'database' => '',
+>>>>>>> eb54a89e55e6e5cde47b1ec57b1d9f1b13f9d9b5
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,

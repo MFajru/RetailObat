@@ -3,7 +3,11 @@
 <?= $this->section('content'); ?>
 <div class="container-fluid">
     <div class="row">
+<<<<<<< HEAD
         <div class="col-md">
+=======
+        <div class="col">
+>>>>>>> eb54a89e55e6e5cde47b1ec57b1d9f1b13f9d9b5
             <h3 class="mb-4 text-gray-900">Pencatatan Stok Barang</h3>
             <a href="/tambahobat" class="ml-2 mb-2 btn btn-success">Tambah Obat</a>
             <?php if (session()->getFlashdata('pesan')) : ?>
@@ -37,7 +41,13 @@
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button type="submit" class="btn btn-danger" onclick="return confirm ('Hapus data ini?');">Hapus</button>
                                 </form>
+<<<<<<< HEAD
                             </td>
+=======
+
+                            </td>
+                        </tr>
+>>>>>>> eb54a89e55e6e5cde47b1ec57b1d9f1b13f9d9b5
                     <?php endforeach; ?>
                 </tbody>
             </table>

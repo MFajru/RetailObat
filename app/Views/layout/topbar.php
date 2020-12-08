@@ -16,4 +16,8 @@
             </div>
         </div>
     </form>
+<<<<<<< HEAD
 </nav>
+=======
+</nav>
+>>>>>>> eb54a89e55e6e5cde47b1ec57b1d9f1b13f9d9b5
