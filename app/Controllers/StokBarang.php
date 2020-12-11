@@ -3,14 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\Pencatatan_StokBarangModel;
+use App\Models\TransaksiBarangModel;
 
 class StokBarang extends BaseController
 {
     protected $pencatatan_stokbarangModel;
+    protected $transaksibarang;
 
     public function __construct()
     {
         $this->pencatatan_stokbarangModel = new Pencatatan_StokBarangModel();
+        $this->transaksibarang = new TransaksiBarangModel();
     }
 
     public function index()
@@ -76,6 +79,14 @@ class StokBarang extends BaseController
             'slug' => $slug,
             'stok_obat' => $this->request->getVar('stok_obat')
         ]);
+        $keterangan_transaksi = "masuk";
+        $this->transaksibarang->save([
+            'kode_obat' => $this->request->getVar('kode_obat'),
+            'nama_obat' => $this->request->getVar('nama_obat'),
+            'slug' => $slug,
+            'jumlah_obat' => $this->request->getVar('stok_obat'),
+            'keterangan_transaksi' => $keterangan_transaksi,
+        ]);
 
         session()->setFlashdata('pesan', 'Data berhasil ditambahkan.');
 
@@ -105,6 +116,7 @@ class StokBarang extends BaseController
     public function update($id)
     {
         $dataLama = $this->pencatatan_stokbarangModel->getStokObat($this->request->getVar('slug'));
+
         if ($dataLama['kode_obat'] == $this->request->getVar('kode_obat')) {
             $rules_kode_obat = 'required|max_length[6]';
         } else {
@@ -151,6 +163,25 @@ class StokBarang extends BaseController
             'slug' => $slug,
             'stok_obat' => $this->request->getVar('stok_obat')
         ]);
+        if ($dataLama['stok_obat'] < $this->request->getVar('stok_obat')) {
+            $keterangan_transaksi = "masuk";
+            $this->transaksibarang->save([
+                'kode_obat' => $this->request->getVar('kode_obat'),
+                'nama_obat' => $this->request->getVar('nama_obat'),
+                'slug' => $slug,
+                'jumlah_obat' => ($this->request->getVar('stok_obat') - $dataLama['stok_obat']),
+                'keterangan_transaksi' => $keterangan_transaksi,
+            ]);
+        } else if ($dataLama['stok_obat'] > $this->request->getVar('stok_obat')) {
+            $keterangan_transaksi = "keluar";
+            $this->transaksibarang->save([
+                'kode_obat' => $this->request->getVar('kode_obat'),
+                'nama_obat' => $this->request->getVar('nama_obat'),
+                'slug' => $slug,
+                'jumlah_obat' => ($dataLama['stok_obat'] - $this->request->getVar('stok_obat')),
+                'keterangan_transaksi' => $keterangan_transaksi
+            ]);
+        }
 
         session()->setFlashdata('pesan', 'Data berhasil diubah.');
 

@@ -4,7 +4,7 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h3 class="mb-4 text-gray-900">Aplikasi Persediaan Barang Retail Perusahaan ABC</h3>
+    <h3 class="mb-4 text-gray-900">Aplikasi Persediaan Barang Retail Perusahaan ABC (Pegawai)</h3>
     <p>Silahkan pilih menu yang ada di sidebar</p>
 
 </div>

@@ -31,12 +31,18 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Pages::index');
+$routes->get('/', 'Pages::login');
+$routes->get('/pegawaihome', 'Pages::pegawaihome');
+$routes->get('/managerhome', 'Pages::managerhome');
 $routes->get('/pencatatan_stokbarang', 'StokBarang::index');
 $routes->get('/tambahobat', 'StokBarang::create');
 $routes->get('/editobat/(:any)', 'StokBarang::edit/$1');
 $routes->delete('/stokbarang/delete/(:num)', 'StokBarang::delete/$1');
 $routes->get('/stokbarang/delete/(:any)', 'StokBarang::error');
+$routes->get('/transaksimasuk', 'Transaksi::masuk');
+$routes->get('/transaksikeluar', 'Transaksi::keluar');
+$routes->get('/laporantransaksi', 'LaporanTransaksi::laporanmasuk');
+
 
 /**
  * --------------------------------------------------------------------
